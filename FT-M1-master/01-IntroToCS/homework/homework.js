@@ -1,8 +1,10 @@
 'use strict';
 
-function BinarioADecimal(num) {}
+function BinarioADecimal(num) {
+}
 
-function DecimalABinario(num) {}
+function DecimalABinario(num) {
+}
 
 module.exports = {
    BinarioADecimal,
