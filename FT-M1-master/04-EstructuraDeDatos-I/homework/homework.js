@@ -14,9 +14,30 @@ Secuencia:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar definir funciones que logren los mismos resultados pero de manera iterativa.
 */
 
-function nFactorial(n) {}
+function nFactorial(n) { }
 
-function nFibonacci(n) {}
+// 4! = 4 * 3 * 2 * 1
+// n! = n * (n-1) * (n-2) *...* 1
+// (n-1)! = (n-1) * (n-2) * ... * 1
+// n! = n * (n-1)!
+
+function nFibonacci(n) {
+  // n es una posicion
+  // como usar n como posicion para calcular el valor de la secuencia
+  // n0 = 0
+  // n1 = 1
+  // 
+}
+nFibonacci(7)
+// n1 = 0
+// n2 = 1
+// n3 = n1 + n2 -> 1
+// n4 = n2 + n3 -> 1 + 1 -> 2
+// n5 => n3 + n4 ->  3
+// n -> posicion
+
+// 0 1 1 2 3 5 8 13 21 ...
+//               ^
 
 /*
 Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde el primer elemento que ingresa es el primero que se quita. Definir los siguientes métodos:
