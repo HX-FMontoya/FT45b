@@ -1,6 +1,6 @@
 //! CLOSURE -> funcion que retorna otra funcion
 
-/* function saludar(nombre, a, b) {
+function saludar(nombre, a, b) {
     function suma(a, b) {
         return a+b
     }
@@ -19,11 +19,11 @@ console.log(saludoADan("Ni hao "));
 var saludoADaniel = saludar("Daniel")
 console.log(saludoADaniel("Hola "))
 console.log(saludoADaniel("Hi "))
-console.log(saludoADaniel("Ni hao ")); */
+console.log(saludoADaniel("Ni hao "));
 
 //! Particularidades
-// 1.
-/* var crearFuncion = function () {
+//? 1. Que tengamos problemas usando var
+var crearFuncion = function () {
   var arr = [];
   for (let i = 0; i < 3; i++) {
       arr.push(() => { console.log(i) });
@@ -33,11 +33,11 @@ console.log(saludoADaniel("Ni hao ")); */
 var arreglo = crearFuncion();
 console.log(arreglo[0]());
 console.log(arreglo[1]());
-console.log(arreglo[2]()); */
+console.log(arreglo[2]());
 
 
-//2.
-/* function saludar(saludo) {
+//? 2. Que pueda retornar una closure u otra segun el caso
+function saludar(saludo) {
     console.log(saludo)
 }
 
@@ -48,7 +48,7 @@ function hacerSaludo(lenguaje) {
     }
 }
 
-hacerSaludo("es") */
+hacerSaludo("es")
 
 // BIND , CALL , APPLY
 // Bind -> devuelve una nueva funcion, con el this ya modificado

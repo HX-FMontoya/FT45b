@@ -63,6 +63,7 @@ describe('Un queue', function() {
     queue.enqueue('first');
     queue.enqueue('second');
     queue.enqueue('third');
+    // [third,second,first] -> unshift -> izq - der
     expect(queue.size()).toBe(3);
     expect(queue.dequeue()).toBe('first');
     expect(queue.size()).toBe(2);

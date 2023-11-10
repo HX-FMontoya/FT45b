@@ -92,7 +92,7 @@ console.log(squareCache(3));
 
 //----------------------------------------
 
-// Bind - Call - Apply -> cambiando el this, a donde a punta
+// Bind - Call - Apply -> cambian el this, a donde a punta
 // Bind -> devuelve una nueva funcion, debo ejecutarla para que me devuelva en nuevo valor bindeado
 // Tanto Call, como Apply, nos devuelven una instancia de la fn, ya modificada
 // Call -> Recibia los argumentos uno a uno
