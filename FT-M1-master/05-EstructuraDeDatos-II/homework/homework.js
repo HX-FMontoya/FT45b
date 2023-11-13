@@ -1,10 +1,12 @@
 "use strict";
 // En que indice sera almacenado?
-/* class HashTable {
+class HashTable {
   constructor() {
     this.tabla = new Array(10);
   }
   insertar(clave, valor) {
+    // clave -> edad
+    // 4 % 10 -> 4
     const indice = clave.length % this.tabla.length;
     this.tabla[indice]
       ? this.tabla[indice].push({ clave, valor })
@@ -15,9 +17,10 @@
 const tablaHash = new HashTable();
 tablaHash.insertar("nombre", "Juan");
 tablaHash.insertar("edad", 25);
-tablaHash.insertar("ciudad", "Ejemplo"); */
+tablaHash.insertar("ciudad", "Ejemplo");
 
-// ¿Cuál sería el índice de la tabla hash utilizado para almacenar la clave "edad"?
+// ¿Cuál sería el índice de la tabla hash utilizado para almacenar la clave "edad"? 
+// R // -> 4
 
 /* EJERCICIO 1
 Implementar la clase LinkedList, definiendo los siguientes métodos:
