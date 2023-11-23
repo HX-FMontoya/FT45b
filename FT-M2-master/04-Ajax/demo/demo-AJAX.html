@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo AJAX sin jQuery</title>
+</head>
+<body>
+
+<button id="btnCargarDatos">Cargar Datos</button>
+<div id="resultado"></div>
+
+<script>
+  // Esperar a que el documento esté listo
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("dom listo")
+    // Obtener una referencia al botón
+    var btnCargarDatos = document.getElementById('btnCargarDatos');
+    // <button id="btnCargarDatos">Cargar Datos</button>
+
+    // Asignar un evento click al botón
+    btnCargarDatos.addEventListener('click', function() {
+      // Crear una instancia de XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      console.log(xhr)
+
+      // Configurar la solicitud
+      // open(method, url, async, user, password)
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', true);
+
+      // Configurar la función de devolución de llamada cuando la solicitud se complete
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          // Manejar la respuesta exitosa
+          var data = JSON.parse(xhr.responseText);
+          // Parseo para que quede de JSON a objeto
+          document.getElementById('resultado').innerHTML = 'Título: ' + data.title + '<br>' + 'Contenido: ' + data.body;
+        } else {
+          // Manejar errores
+          document.getElementById('resultado').innerHTML = 'Ocurrió un error al cargar los datos.';
+        }
+      };
+
+      // Configurar la función de devolución de llamada en caso de error de red
+      xhr.onerror = function() {
+        document.getElementById('resultado').innerHTML = 'Ocurrió un error de red al cargar los datos.';
+      };
+
+      // Enviar la solicitud
+      xhr.send();
+    });
+  });
+</script>
+
+</body>
+</html>
