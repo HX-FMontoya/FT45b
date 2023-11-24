@@ -1,9 +1,9 @@
-/* var traverseDomAndCollectElements = function (
+var traverseDomAndCollectElements = function (
   matchFunc,
   startEl = document.body,
-  resultSet = []
-) {
-  // matchFunc -> (elemento) => `#${elemento.id}` === selector;
+  ) {
+    // matchFunc -> (elemento) => `#${elemento.id}` === selector;
+    let resultSet = []
 
   // caso donde evaluo el elemento en donde estoy parado en este momento a ver si cumple o no con lo de matchFunc
   if (matchFunc(startEl)) resultSet.push(startEl);
@@ -12,7 +12,7 @@
     const elem = startEl.children[i];
     // en elem esta lo que el usuario esta buscando?
     let result = traverseDomAndCollectElements(matchFunc, elem, resultSet);
-    // result -> [1,2,3,4,]
+    // result -> [1,2,3,4,...[]]
     resultSet = [...resultSet, ...result];
   }
 
@@ -22,9 +22,9 @@
   // usa matchFunc para identificar elementos que matchien
 
   // TU CÓDIGO AQUÍ
-}; */
+};
 // Solucion FT45b en el PP
-var traverseDomAndCollectElements = function (matchFunc, startEl) {
+/* var traverseDomAndCollectElements = function (matchFunc, startEl) {
   var resultSet = [];
   var stack = [];
 
@@ -45,7 +45,7 @@ var traverseDomAndCollectElements = function (matchFunc, startEl) {
   }
 
   return resultSet;
-};
+}; */
 
 // Detecta y devuelve el tipo de selector
 // devuelve uno de estos tipos: id, class, tag.class, tag
@@ -89,8 +89,12 @@ const matchFunctionMaker = function (selector) {
     /* if ("#" + elemento.id === selector) return true
       else return false */
   } else if (selectorType === "class") {
-    matchFunction = (elemento) =>
-      elemento.classList.some((elem) => `.${elem}` === selector);
+    matchFunction = (elemento) => {
+      for (const elem of elemento.classList) {
+        if (`.${elem}` === selector) return true;
+      }
+      return false;
+    };
     // <span class="myClass myClass2 myClass3"></span>
     // classList span -> ['myClass', 'myClass2', 'myClass3']
     // selector -> ".myClass"
