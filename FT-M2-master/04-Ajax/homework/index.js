@@ -1,6 +1,6 @@
 // Anterior
 // document.getElementById("boton").addEventListener("click", cb)
-
+// hola soy un nuevo commit
 // Actual -> JQuery -> AJAX
 const URL = "http://localhost:5000";
 const image = $("#image");
