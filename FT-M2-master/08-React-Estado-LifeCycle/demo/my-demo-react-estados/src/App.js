@@ -15,7 +15,7 @@ function App() {
       {/* <Contador /> */}
       {/* ---- Con props ---- */}
       {/* <ContadorSinEstados contador={0} /> */}
-      {/* <Contador contador={0} /> */}
+      {/* <Contador contador={0} id={1} /> */}
     </div>
   );
 }
