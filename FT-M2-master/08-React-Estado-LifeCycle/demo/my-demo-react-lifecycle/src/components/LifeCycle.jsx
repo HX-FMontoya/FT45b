@@ -6,18 +6,26 @@ class LifeCycle extends React.Component {
     this.state = {
       counter: 0,
       isActive: true,
-    //   name: props.name,
+      name: props.name,
     };
+    // this.aumento = this.aumento.bind(this)
   }
   componentDidMount() {
     console.log("I'm alive");
   }
   componentDidUpdate(prevProps, prevState) {
+    // props || state
+    console.log("Me actualice");
     console.log(prevProps);
-    console.log("Me actualice: ");
     console.log(prevState);
+    if (prevProps.name !== this.props.name) {
+      console.log("el nombre cambio");
+    }
     if (prevState.isActive !== this.state.isActive) {
       console.log("Actualice isActive ");
+    }
+    if (prevState.counter !== this.state.counter) {
+      console.log("Actualice counter ");
     }
   }
   componentWillUnmount() {
@@ -49,22 +57,61 @@ export default LifeCycle; */
 
 //! Notacion Funcional
 //? Primera forma
-/* import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 function LifeCycle(props) {
+  // props -> {name: ""}
   const [counter, setCounter] = useState(0);
   const [isActive, setIsActive] = useState(true);
-  const [name, setName] = useState(props.name);
-  useEffect(() => {
-    console.log("I'm alive");
-  }, []);
+  const [name, setName] = useState("");
+  // componentDidMount(){ // que hace} -> useEffect(()=>que hace,[])
+  // el segundo parametro del useEffect -> [] es determinante para el comportamiento
+  //* Si es [] -> useEffect se va a ejecutar cuando el componente se monta
+  // useEffect(() => {
+  //   console.log("I'm alive");
+  // }, []);
+  //* Si el arreglo tiene valores, esos valores seran las dependencias que 'escuche' para poder ejecutar el codigo
+  //* Se va a ejecutar cuando se monta y cuando la dependencia se actualiza
+  // useEffect(() => {
+  //   console.log("Actualice isActive");
+  // }, [isActive]);
+  // useEffect(() => {
+  //   console.log("Actualice counter");
+  // }, [counter]);
+  // useEffect(() => {
+  //   console.log(props)
+  //   console.log("cambie")
+  // },[props])
 
-  useEffect(() => {
-    console.log("Me actualice");
-  }, [isActive]);
+  // useEffect(() => {
+  //   setName(props.name);
+  // }, [props.name]);
 
-  useEffect(() => {
-    return () => console.log("I'm dead");
-  }, []);
+  // useEffect(() => {
+  //   console.log("nuevo nombre: " + name);
+  // }, [name]);
+
+  // componentWillUnmount -> se usa el useEffect para desmontar el componente retornando una nueva funcion y con el arreglo de dependencias vacio
+  // useEffect(() => {
+  //   // Para que se ejecute algo cuando se desmonta el componente
+  //   // En el useEffect, debe retornarse una nueva funcion
+  //   console.log("Me monte")
+  //   return () => console.log("I'm dead");
+  // }, []);
+
+
+  //! useEffect -> para montaje -> array vacio
+  //? para actualizar -> array con dependencias (tanto estados como props) -> tambien se va a ejecutar la primer vez
+  //* para desmontar -> array vacio y en bloque del useEffect se debe retornan una funcion, donde esta funcion tiene las instrucciones que se ejecutaran cuando se demonte el componente
+  // un mismo useEffect me puede servir para montaje y desmontaje
+  useEffect(() => { 
+    console.log("me monte")
+    return () => { console.log("me desmonte")}
+  }, [])
+  // un mismo useEffect me sirve para montaje y actualizacion
+  useEffect(() => { 
+    console.log("cuando se monta o cuando cambia isActive")
+  }, [isActive])
+  // useMemo -> 
 
   function aumento() {
     setCounter(counter + 1);
@@ -73,7 +120,7 @@ function LifeCycle(props) {
   return (
     <div>
       <h1>Soy el LifeCycle</h1>
-      <h3>Name: {name}</h3>
+      {/* <h3>Name: {name}</h3> */}
       <h3>Counter: {counter}</h3>
       <h3>isActive: {isActive ? "Yes" : "Not"}</h3>
       <button onClick={aumento}>Aumentar</button>
@@ -82,7 +129,7 @@ function LifeCycle(props) {
   );
 }
 
-export default LifeCycle; */
+export default LifeCycle;
 
 //! Notacion Funcional
 //? Segunda forma

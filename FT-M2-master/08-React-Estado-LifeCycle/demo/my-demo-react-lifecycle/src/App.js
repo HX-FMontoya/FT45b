@@ -4,13 +4,14 @@ import data from "./assets/data";
 // data -> [{},{}]
 // Personas -> componente -> <Personas/>
 function App() {
+  let nombre = "Feli";
   return (
     <div className="App">
       <h1>Hello world!</h1>
       {/* ---- Sin Props ---- */}
       {/* <LifeCycle /> */}
       {/* ---- ConProps ---- */}
-      {/* <LifeCycle name="Feli"/> */}
+      {/* <LifeCycle name={nombre} /> */}
       {/* <Personas amigos={data} /> */}
     </div>
   );
