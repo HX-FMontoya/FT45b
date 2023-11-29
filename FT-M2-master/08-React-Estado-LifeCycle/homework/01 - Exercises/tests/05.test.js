@@ -50,6 +50,7 @@ describe("05 | Ejercicios", () => {
       fireEvent.click(screen.getByRole("button", { name: "Mamíferos" }));
     });
     await waitFor(() => {
+      console.log(screen)
       expect(screen.queryByText("Cocodrilo")).toEqual(null);
       expect(screen.queryByText("Delfín")).not.toEqual(null);
       expect(screen.queryByText("León")).not.toEqual(null);
