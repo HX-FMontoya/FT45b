@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 // import styledSpecies from "./Species.module.css";
 
 export default function Species({ species, handleSpecies, handleAllSpecies}) {
@@ -15,9 +15,9 @@ export default function Species({ species, handleSpecies, handleAllSpecies}) {
       <button onClick={handleAllSpecies}>All Animals</button>
     </div>
   );
-} */
+}
 
-import React from "react";
+/* import React from "react";
 import styledSpecies from "./Species.module.css";
 
 export default function Species({ species, handleSpecies, handleAllSpecies }) {
@@ -36,4 +36,4 @@ export default function Species({ species, handleSpecies, handleAllSpecies }) {
       <button onClick={handleAllSpecies}>All Animals</button>
     </div>
   );
-}
+} */

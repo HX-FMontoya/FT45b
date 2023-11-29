@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 // eslint-disable-next-line no-unused-vars
 import Animals from "../Animals/Animals";
 // eslint-disable-next-line no-unused-vars
@@ -20,14 +20,15 @@ export default function Zoo() {
     // fetch
     fetch(URL_SERVER)
       .then((res) => res.json())
-      .then(({ animals, species}) => {
+      .then(({ animals, species }) => {
         setZoo({
           ...zoo,
           animals,
           species,
-          allAnimals: animals
-        })
-      }).catch((error)=> console.log(error))
+          allAnimals: animals,
+        });
+      })
+      .catch((error) => console.log(error));
     // axios
     axios(URL_SERVER)
       .then(({ data }) => {
@@ -41,9 +42,11 @@ export default function Zoo() {
       .catch((error) => console.log(error));
   }, []);
 
-  // React.useEffect(() => {
-  //   console.log(`cambie : ${zoo.zooName}`);
-  // }, [zoo.zooName]);
+  React.useEffect(() => {
+    if (zoo.zooName.length) {
+      handleSearch();
+    }
+  }, [zoo.zooName]);
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -70,11 +73,22 @@ export default function Zoo() {
     });
   };
 
+  const handleSearch = () => {
+    const filtered = zoo.allAnimals.filter((animal) =>
+      animal.name.toLowerCase().includes(zoo.zooName.toLowerCase())
+    );
+    setZoo({
+      ...zoo,
+      animals: filtered,
+    });
+  };
+
   return (
     <div>
       <label>Zoo Name:</label>
       <input onChange={handleInputChange} value={zoo.zooName} />
-      <h1>{zoo.zooName}</h1>
+      <h1>Estas buscando: {zoo.zooName}</h1>
+
       <Species
         species={zoo.species}
         handleSpecies={handleSpecies}
@@ -84,9 +98,8 @@ export default function Zoo() {
     </div>
   );
 }
- */
 
-import React from "react";
+/* import React from "react";
 import Animals from "../Animals/Animals";
 import Species from "../Species/Species";
 import styledZoo from "./Zoo.module.css";
@@ -142,4 +155,4 @@ export default function Zoo() {
       <Animals animals={zoo?.animals} />
     </div>
   );
-}
+} */
