@@ -1,0 +1,9 @@
+.activo {
+  color: rgb(20, 60, 40);
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.noActivo {
+  color: rgb(75, 36, 112);
+}
