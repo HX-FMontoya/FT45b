@@ -33,8 +33,7 @@ export function fetchPost(valor) {
   return function (dispatch) {
     dispatch(getPost());
     axios.get(`https://jsonplaceholder.typicode.com/todos/${valor}`)
-      .then(r => r.data)
-      .then(d => dispatch(receivePost(d)))
+      .then(({d}) => dispatch(receivePost(d)))
       .catch(e => console.log(e));
   }
 }
