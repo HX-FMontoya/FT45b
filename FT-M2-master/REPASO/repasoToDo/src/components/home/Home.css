@@ -1,0 +1,14 @@
+section {
+  background-color: antiquewhite;
+  color: #242424;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #faff64;
+}
