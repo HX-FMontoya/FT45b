@@ -1,7 +1,11 @@
-export default function Amigos() {
+import Persona from "../persona/Persona";
+
+export default function Amigos({ amigos }) {
   return (
     <div>
-      <h1>Hola soy el amigos</h1>
+      {amigos.map((amigo, index) => (
+        <Persona persona={amigo} key={index} />
+      ))}
     </div>
   );
 }

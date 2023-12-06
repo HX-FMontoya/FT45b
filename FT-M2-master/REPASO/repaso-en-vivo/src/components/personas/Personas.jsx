@@ -1,10 +1,11 @@
+import Persona from "../persona/Persona";
 
-
-export default function Personas() {
-  
+export default function Personas({ personas }) {
   return (
     <div>
-      <h1>Hola soy el personas</h1>
+      {personas.map((persona, index) => (
+        <Persona persona={persona} key={index} />
+      ))}
     </div>
   );
 }
