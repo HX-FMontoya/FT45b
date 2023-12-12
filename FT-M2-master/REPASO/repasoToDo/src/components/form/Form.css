@@ -1,0 +1,81 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  background-color: #242424;
+}
+
+.form {
+  color: antiquewhite;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 320px;
+  min-height: 100vh;
+  scale: 2;
+}
+
+.formToDo {
+  color: #f2e3c6;
+  margin: 2px;
+  padding: 10px;
+  background-color: #353634;
+  border-radius: 10px;
+  display: inline-flex;
+}
+
+h3 {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.input {
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  outline: none;
+}
+
+.inputToDo {
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  background-color: #f2e3c6;
+  color: #1a1a1a;
+  outline: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1em;
+}
+
+button {
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 0.5em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

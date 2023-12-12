@@ -1,0 +1,4 @@
+const CHANGE_NAME = "CHANGE_NAME";
+const ADD_TODO = "ADD_TODO"
+
+export { CHANGE_NAME, ADD_TODO };

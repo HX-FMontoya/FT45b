@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo jQuery con AJAX</title>
+  <!-- Debemos incluir la biblioteca jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<button id="btnCargarDatos">Cargar Datos</button>
+<div id="resultado"></div>
+
+<script>
+  // Esperar a que el documento esté listo
+  $(document).ready(function(){
+    // Asignar un evento click al botón
+    $("#btnCargarDatos").click(function(){
+      // Realizar la solicitud AJAX
+      $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/posts/1', // URL del servidor
+        method: 'GET', // Método de la solicitud
+        dataType: 'json', // Tipo de datos esperados en la respuesta
+        success: function(data) {
+          // Manejar la respuesta exitosa
+          $("#resultado").html('Título: ' + data.title + '<br>' + 'Contenido: ' + data.body);
+        },
+        error: function() {
+          // Manejar errores
+          $("#resultado").html('Ocurrió un error al cargar los datos.');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
