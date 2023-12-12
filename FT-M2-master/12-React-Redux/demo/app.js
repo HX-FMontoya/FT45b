@@ -8,7 +8,7 @@ import store from './src/store.js';
 render(
     <Provider store={store}>
       <div>
-        <Counter />
+        <Counter name="Feli"/>
         <Post />
       </div>
     </Provider>,

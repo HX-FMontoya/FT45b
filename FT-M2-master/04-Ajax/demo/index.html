@@ -3,14 +3,14 @@
 
 <head>
   <meta charset=UTF-8>
-  <title>Demo AJAX</title>
+  <title>Demo AJAX & JQUERY</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
   <div id='respuesta'>
   </div>
-  <button class='boton'>AJAX!</button>
+  <button class='boton'>Get info!</button>
   <script type="text/javascript">
     var index = 1;
     $('.boton').click(function () {
@@ -18,9 +18,9 @@
       $.get("https://jsonplaceholder.typicode.com/photos/" + index, function (data) {
         // vanilla javascript
         var img = document.createElement('img');
-        img.src = dataAca.url;
+        img.src = data.url;
         var title = document.createElement('h3');
-        title.textContent = dataAca.title;
+        title.textContent = data.title;
         $('#respuesta').append(img);
         $('#respuesta').append(title);
         index++;

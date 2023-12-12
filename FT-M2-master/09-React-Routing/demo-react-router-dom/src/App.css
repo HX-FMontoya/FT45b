@@ -1,0 +1,22 @@
+header {
+  background-color: rgb(94, 186, 186);
+  border-radius: 10px;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+ul {
+  display: flex;
+  padding: 10px;
+}
+
+li {
+  padding: 5px;
+  list-style: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
