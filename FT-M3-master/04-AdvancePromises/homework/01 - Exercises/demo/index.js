@@ -11,5 +11,10 @@ const myPromise = new $Promise((resolve, reject) => {
 
 console.log(myPromise);
 
-myPromise.then().then().then(() => { })
-    // [{successCb:()=> {}, errorCb: false}]->
+myPromise
+  .then()
+  .then()
+  .then((value) => {
+    console.log(value);
+  });
+// [{successCb:()=> {}, errorCb: false}]->
