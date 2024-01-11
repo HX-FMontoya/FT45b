@@ -5,10 +5,15 @@ const postUser = async (req, res) => {
     // user, country -> carpeta models -> las tablas
     const { User } = sequelize.models;
     const { body } = req;
-    const response = await User.create(body);
-    // await response.save();
-    console.log(response);
-    res.status(201).json(body);
+    let user = await User.create(body);
+    /* await user.update({ name: "Alejo" }, { where: { name: "user 19" } }); */
+    user.name = user.name.toUpperCase();
+    console.log(user);
+    await user.destroy();
+    /* const user = User.build(body);
+    await user.save(); */
+    await user.save();
+    res.status(201).json(user);
   } catch (error) {
     res.status(400).send(error);
   }

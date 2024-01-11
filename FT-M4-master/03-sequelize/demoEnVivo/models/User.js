@@ -23,10 +23,17 @@ const users = (sequelize) =>
         },
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
+      },
+      age: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 20,
         validate: {
-          isInt: true,
+          isInt: {
+            msg: "Debe ser un numero entero",
+          },
         },
       },
     },

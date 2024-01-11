@@ -7,7 +7,7 @@ const country = require("./models/Country");
 const sequelize = new Sequelize(
   `${DB}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   {
-    logging: console.log("estas logueado"),
+    logging: console.log("Estas conectado"),
   }
 );
 

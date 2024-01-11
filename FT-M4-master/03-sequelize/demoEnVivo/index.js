@@ -3,7 +3,11 @@ const { PORT, HOST } = process.env;
 const server = require("./server");
 const sequelize = require("./db");
 
-server.listen(PORT, HOST, () => {
-  sequelize.sync({ force: true });
-  console.log(`Server listening on port: ${PORT}`);
-});
+sequelize
+  .sync({ force: true })
+  .then(() => {
+    server.listen(PORT, HOST, () => {
+      console.log(`Server listening on port: ${PORT}`);
+    });
+  })
+  .catch((err) => console.log(err));
